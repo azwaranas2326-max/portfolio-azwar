@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Muhammad Azwar Anas — Mahasiswa Teknologi Informasi Universitas Dian Nuswantoro dengan fondasi jaringan komputer dan eksplorasi desain UI/UX serta web development.">
+  <meta name="keywords" content="Muhammad Azwar Anas, Portfolio, UI/UX Design, IT Student, UDINUS, SMK TKJ, Jepara">
+  <meta name="author" content="Muhammad Azwar Anas">
+  
+  <title>Muhammad Azwar Anas — IT Student & UI/UX Explorer</title>
+
+  <!-- Favicon Monogram -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
+  <!-- Cegah Flash of Unstyled Theme (FOUC) saat inisialisasi awal -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('azwar_portfolio_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Aksesibilitas: Tautan Langsung ke Konten Utama untuk Navigasi Keyboard -->
+  <a href="#main-content" class="skip-link">Lewati ke Konten Utama</a>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="navbar" role="banner">
+    <div class="container navbar-inner">
+      <a href="#hero" class="brand-link" aria-label="Beranda Muhammad Azwar Anas">
+        <span>Azwar Anas</span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Navigasi Utama">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#journey" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Actions: Status Indicator, Theme Switcher & Mobile Toggle -->
+      <div class="nav-actions">
+        <div class="status-indicator" title="Status Akademik & Kesiapan Kolaborasi">
+          <span class="status-dot"></span>
+          <span>Open for Learning</span>
+        </div>
+
+        <!-- Tombol Switcher Tema (Light / Dark Mode) -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Ganti Tema Tampilan" title="Ganti Mode Tampilan (Light / Dark)">
+          <!-- Ikon Matahari (Aktif saat Dark Mode untuk kembali ke Light) -->
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Ikon Bulan (Aktif saat Light Mode untuk berpindah ke Dark) -->
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Toggle Mobile Nav -->
+        <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- ------------------------------------------------------------------------
+         01. HERO SECTION (Redesain: Grid 50:50, Tipografi Serif Klasik, Foto Besar)
+         ------------------------------------------------------------------------ -->
+    <section class="hero-section section" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Kolom Kiri (50%): Teks, Headline Serif Klasik, CTA & Detail Metadata -->
+        <div class="hero-content reveal">
+          
+          <div class="hero-badge-wrap">
+            <span class="hero-badge">
+              <span class="badge-dot"></span>
+              Mahasiswa Aktif Teknologi Informasi · UDINUS
+            </span>
+          </div>
+
+          <!-- Headline Tipografi Serif Klasik (#111111 Dark Charcoal) -->
+          <h1 class="hero-title">
+            Selalu Beusaha untuk menggapai  <span class="serif-emphasis">Impian</span>.
+          </h1>
+
+          <p class="hero-summary">
+            Saya <strong>Muhammad Azwar Anas</strong>, mahasiswa Universitas Dian Nuswantoro asal Jepara dengan latar belakang SMK TKJ dan pengalaman PKL teknis jaringan di PT. FahasaNet. Saat ini mendedikasikan eksplorasi pada <strong>UI/UX Design</strong> dan <strong>Web Development</strong> untuk menciptakan produk digital yang intuitif, terstruktur, dan berpusat pada kenyamanan pengguna.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>Lihat Proyek UI/UX</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Hubungi Saya</span>
+            </a>
+          </div>
+
+          <!-- Detail Metadata Pendidikan, Domisili, dan Fokus -->
+          <div class="hero-metadata">
+            <div class="meta-item">
+              <span class="meta-label">Pendidikan</span>
+              <span class="meta-val">Univ. Dian Nuswantoro</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Domisili</span>
+              <span class="meta-val">Jepara, Jawa Tengah</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Spesialisasi</span>
+              <span class="meta-val">UI/UX & Web Foundations</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Kolom Kanan (50%): Foto Profil Besar & Frame Minimalis Proporsional -->
+        <div class="hero-visual reveal delay-1">
+          <div class="profile-card-wrapper">
+            <div class="profile-photo-frame">
+              <!-- 
+                PETUNJUK PENGGANTIAN FOTO:
+                Ganti file 'assets/images/profile-placeholder.svg' dengan foto diri resmi Anda
+                (misal: assets/images/azwar-photo.jpg). Rasio 4:5 akan terisi secara proporsional.
+              -->
+              <img 
+                src="Profil Web.jpeg" 
+                alt="Potret Muhammad Azwar Anas - Mahasiswa IT UDINUS" 
+                class="profile-photo"
+                width="520"
+                height="650"
+                loading="eager"
+              >
+              
+              <div class="photo-replace-note">
+                <span>Hello Gw Zuan</span>
+                <span style="font-weight: 600; color: var(--accent-emerald);">6767</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         02. ABOUT NARRATIVE SECTION
+         ------------------------------------------------------------------------ -->
+    <section class="section" id="about">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">01 / Story & Philosophy</span>
+          <h2 class="section-title">Dedikasi Belajar & Perjalanan Teknologi</h2>
+          <p class="section-desc">
+            Dari pengabelan jaringan fisik hingga merancang interaksi visual di layar browser.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Narrative Storytelling Card -->
+          <div class="iridescent-card narrative-card reveal">
+            <p class="narrative-lead">
+              Ketertarikan saya pada dunia teknologi berakar dari rasa ingin tahu tentang <strong>bagaimana sistem yang kompleks dapat bekerja secara harmonis</strong>.
+            </p>
+            <p>
+              Menempuh studi di <strong>SMK NU MA'ARIF KUDUS</strong> jurusan Teknik Komputer & Jaringan memberi saya pemahaman nyata tentang infrastruktur fisik: bagaimana sinyal bergerak, logika crimping kabel UTP, dan troubleshoot jaringan Wi-Fi saat melaksanakan Praktik Kerja Lapangan di <strong>PT. FahasaNet</strong>.
+            </p>
+            <p>
+              Kini, sebagai mahasiswa aktif di <strong>Universitas Dian Nuswantoro</strong>, saya memperluas cakrawala tersebut ke ranah perangkat lunak dan desain interaksi. Saya percaya antarmuka yang baik bukan sekadar enak dipandang, melainkan dibangun di atas logika sistem yang terstruktur dan empati kepada pengguna.
+            </p>
+          </div>
+
+          <!-- Value & Soft Skill Highlights -->
+          <div class="about-features">
+            
+            <div class="feature-pill reveal delay-1">
+              <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <div>
+                <h3 class="feature-title">Fondasi Jaringan Nyata</h3>
+                <p class="feature-desc">Memahami dasar troubleshooting Wi-Fi, kabel transmisi data UTP, dan manajemen inventaris perangkat hasil pengalaman lapangan langsung.</p>
+              </div>
+            </div>
+
+            <div class="feature-pill reveal delay-2">
+              <div class="feature-icon purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <div>
+                <h3 class="feature-title">Human-Centered Interface</h3>
+                <p class="feature-desc">Mempelajari cara merumuskan alur pengguna (user flow), wireframing, dan visual hierarchy menggunakan Figma & Canva dengan pendekatan terukur.</p>
+              </div>
+            </div>
+
+            <div class="feature-pill reveal delay-3">
+              <div class="feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h3 class="feature-title">Harmoni & Kolaborasi Tim</h3>
+                <p class="feature-desc">Pengalaman aktif dalam kegiatan paduan suara sekolah melatih kepekaan mendengarkan, sinkronisasi ritme kerja tim, dan kedisiplinan tinggi.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         03. SKILLS & TECHNICAL SPECTRUM
+         ------------------------------------------------------------------------ -->
+    <section class="section" id="skills">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">02 / Technical Stack</span>
+          <h2 class="section-title">Keahlian & Fondasi Teknis</h2>
+          <p class="section-desc">
+            Disusun secara jujur berdasarkan tingkat pemahaman praktis dan proses pembelajaran aktif.
+          </p>
+        </div>
+
+        <div class="skills-layout">
+          
+          <!-- Category 1: Design & Prototyping -->
+          <div class="iridescent-card skill-category reveal">
+            <div class="category-header">
+              <span class="category-label">Antarmuka & Visual</span>
+              <h3 class="category-title">UI/UX & Design</h3>
+            </div>
+            
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Figma</span>
+                  <span class="skill-level-badge">Design & Wireframe</span>
+                </div>
+                <span class="skill-item-note">Merancang layout antarmuka, component dasar, dan eksplorasi prototipe interaktif.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Canva</span>
+                  <span class="skill-level-badge">Visual Assets</span>
+                </div>
+                <span class="skill-item-note">Penyusunan materi presentasi visual, asset branding, dan layout grafis ringkas.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Basic UI/UX Principles</span>
+                  <span class="skill-level-badge">Design Thinking</span>
+                </div>
+                <span class="skill-item-note">Pemahaman hierarki tipografi, kontras warna, whitespace, dan alur kenyamanan navigasi.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Web & Code -->
+          <div class="iridescent-card skill-category reveal delay-1">
+            <div class="category-header">
+              <span class="category-label">Pemrograman & Web</span>
+              <h3 class="category-title">Development</h3>
+            </div>
+            
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">HTML5 & CSS3</span>
+                  <span class="skill-level-badge">Semantic Markup</span>
+                </div>
+                <span class="skill-item-note">Membangun struktur web yang semantik, responsif, dan styling modern dengan CSS Grid/Flexbox.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level-badge">Algoritma & Logika</span>
+                </div>
+                <span class="skill-item-note">Pemahaman sintaks logika dasar, pemecahan masalah komputasi, dan struktur data.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">C++</span>
+                  <span class="skill-level-badge">Fondasi Pemrograman</span>
+                </div>
+                <span class="skill-item-note">Pembelajaran dasar logika pemrograman terstruktur dan alokasi proses di perkuliahan.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Hardware & Network Foundations -->
+          <div class="iridescent-card skill-category reveal delay-2">
+            <div class="category-header">
+              <span class="category-label">Infrastruktur Lapangan</span>
+              <h3 class="category-title">Networking</h3>
+            </div>
+            
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Wi-Fi Troubleshooting</span>
+                  <span class="skill-level-badge">Praktik Lapangan</span>
+                </div>
+                <span class="skill-item-note">Pengecekan kualitas sinyal radio, konfigurasi AP dasar, dan identifikasi kendala koneksi.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">UTP Crimping & Cabling</span>
+                  <span class="skill-level-badge">Kabel Fisik</span>
+                </div>
+                <span class="skill-item-note">Pemotongan, susunan standar T568A/B, crimping RJ45, dan pengujian kelayakan kabel LAN.</span>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-name">Device Inventory & Audit</span>
+                  <span class="skill-level-badge">Pencatatan</span>
+                </div>
+                <span class="skill-item-note">Pendataan perangkat jaringan, pengecekan serial number, dan verifikasi kelayakan operasional.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         04. JOURNEY & MILESTONES (Experience & Education Timeline)
+         ------------------------------------------------------------------------ -->
+    <section class="section" id="journey">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">03 / Milestones</span>
+          <h2 class="section-title">Rekam Jejak & Pengalaman</h2>
+          <p class="section-desc">
+            Titik-titik penting yang membentuk cara pandang, kemampuan teknis, dan etika kerja saya.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+          
+          <!-- Milestone 1: Universitas Dian Nuswantoro -->
+          <article class="timeline-item education reveal">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="iridescent-card timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-period">Sekarang · Mahasiswa Aktif</span>
+                <span class="timeline-type">Perguruan Tinggi</span>
+              </div>
+              <h3 class="timeline-role">Teknologi Informasi</h3>
+              <p class="timeline-institution">Universitas Dian Nuswantoro (UDINUS)</p>
+              <ul class="timeline-bullets">
+                <li>Mendalami konsep komputasi modern, rekayasa perangkat lunak, dan dasar-dasar pemrograman algoritma.</li>
+                <li>Aktif mengeksplorasi mandiri dalam bidang UI/UX design, interaksi manusia-komputer, dan frontend development.</li>
+                <li>Membangun portofolio karya digital terstruktur sebagai persiapan memasuki industri teknologi.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Milestone 2: PT. FahasaNet PKL -->
+          <article class="timeline-item reveal delay-1">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="iridescent-card timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-period">Pengalaman Magang / PKL</span>
+                <span class="timeline-type">Praktik Lapangan</span>
+              </div>
+              <h3 class="timeline-role">Teknisi Jaringan Wi-Fi (Tingkat Dasar)</h3>
+              <p class="timeline-institution">PT. FahasaNet</p>
+              <ul class="timeline-bullets">
+                <li>Membantu proses pengabelan dan crimping kabel UTP untuk instalasi jaringan lokal yang stabil.</li>
+                <li>Melakukan pengecekan koneksi jaringan, verifikasi kontinuitas jalur data, dan troubleshooting konektivitas dasar.</li>
+                <li>Mendukung teknisi senior dalam penanganan kendala akses Wi-Fi pelanggan serta pemeliharaan access point.</li>
+                <li>Melakukan pencatatan inventarisasi perangkat keras jaringan untuk menjamin ketertiban logistik operasional.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Milestone 3: SMK NU Ma'arif Kudus -->
+          <article class="timeline-item education reveal delay-2">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="iridescent-card timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-period">Lulusan Kejuruan</span>
+                <span class="timeline-type">Sekolah Menengah Kejuruan</span>
+              </div>
+              <h3 class="timeline-role">Teknik Komputer & Jaringan (TKJ)</h3>
+              <p class="timeline-institution">SMK NU MA'ARIF KUDUS</p>
+              <ul class="timeline-bullets">
+                <li>Mempelajari arsitektur jaringan komputer, skema subnetting IP, perakitan komputer, dan sistem operasi.</li>
+                <li>Aktif mengikuti kegiatan ekstrakurikuler paduan suara sekolah yang mengasah kedisiplinan suara, kepemimpinan, dan komunikasi kelompok.</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         05. SECTION PROJEK (Grid 2-Kolom: UI/UX Design & Network Infrastructure)
+         ------------------------------------------------------------------------ -->
+    <section class="section" id="projects">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <h2 class="section-title">Projek</h2>
+          <p class="section-desc">
+            Karya perancangan antarmuka digital berbasis kebutuhan pengguna dan dokumentasi implementasi nyata infrastruktur jaringan lapangan.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- PROJEK 1: UI/UX DESIGN (Cinema Ticket Booking & E-Commerce App) -->
+          <div class="iridescent-card project-card reveal">
+            <div class="project-preview">
+              <img 
+                src="Purple Gradient Portfolio Presentation .png" 
+                alt="Preview Proyek UI/UX Design — Cinema Ticket Booking & E-Commerce Mobile App" 
+                class="project-photo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="project-details">
+              <span class="project-tagline">UI/UX Design · Mobile Application</span>
+              <h3 class="project-title">Cinema Ticket Booking &amp; E-Commerce Mobile App</h3>
+              <p class="project-desc">
+                Perancangan antarmuka aplikasi pemesanan tiket bioskop (Cinema Booking) dan katalog rental peralatan kamera. Menghadirkan alur eksplorasi film, detail sinopsis, informasi pemeran, jadwal penayangan, hingga tombol aksi beli tiket yang intuitif dan berpusat pada kenyamanan pengguna.
+              </p>
+
+              <div class="project-specs">
+                <div class="spec-item">
+                  <span class="spec-key">Peran</span>
+                  <span class="spec-val">UI/UX Designer &amp; Researcher</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Platform</span>
+                  <span class="spec-val">Mobile App (iOS / Android)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Metode</span>
+                  <span class="spec-val">User Flow, Wireframe &amp; Prototype</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Output</span>
+                  <span class="spec-val">Interactive Figma Prototype</span>
+                </div>
+              </div>
+
+              <div class="tech-tags">
+                <span class="tag-badge">Figma</span>
+                <span class="tag-badge">Mobile UI/UX</span>
+                <span class="tag-badge">Canva</span>
+                <span class="tag-badge">Design System</span>
+                <span class="tag-badge">User-Centered</span>
+              </div>
+
+              <div>
+                <button class="btn btn-secondary" onclick="alert('Proyek UI/UX Cinema & E-Commerce: Dibuat menggunakan Figma dengan fokus pada user flow reservasi tiket bioskop dan kemudahan navigasi katalog!')">
+                  <span>Lihat Detail Alur Desain</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJEK 2: JARINGAN (Network Infrastructure - PKL PT. FahasaNet) -->
+          <div class="iridescent-card project-card reveal delay-1">
+            <div class="project-preview">
+              <img 
+                src="assets/images/project-fahasanet.png" 
+                alt="Dokumentasi Praktik Teknisi Jaringan PKL di PT FahasaNet" 
+                class="project-photo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="project-details">
+              <span class="project-tagline">Network Infrastructure · Praktik Kerja Lapangan</span>
+              <h3 class="project-title">Teknisi Jaringan &amp; Pemeliharaan Wi-Fi — PT. FahasaNet</h3>
+              <p class="project-desc">
+                Dokumentasi praktik kerja lapangan dalam implementasi dan penanganan teknis jaringan internet, meliputi instalasi dan perapian kabel transmisi data UTP/Fiber, asistensi pekerjaan tiang distribusi, troubleshooting konektivitas Wi-Fi pelanggan, serta pencatatan audit inventaris perangkat.
+              </p>
+
+              <div class="project-specs">
+                <div class="spec-item">
+                  <span class="spec-key">Peran</span>
+                  <span class="spec-val">Teknisi Jaringan (PKL)</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Instansi</span>
+                  <span class="spec-val">PT. FahasaNet</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Lingkup</span>
+                  <span class="spec-val">UTP Crimping, Wi-Fi Setup, Audit</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-key">Keterangan</span>
+                  <span class="spec-val">Praktik Lapangan (SMK TKJ)</span>
+                </div>
+              </div>
+
+              <div class="tech-tags">
+                <span class="tag-badge">Computer Networking</span>
+                <span class="tag-badge">Wi-Fi Troubleshooting</span>
+                <span class="tag-badge">UTP Crimping</span>
+                <span class="tag-badge">Device Inventory</span>
+              </div>
+
+              <div>
+                <button class="btn btn-secondary" onclick="alert('Dokumentasi PKL PT. FahasaNet: Pengalaman langsung di lapangan menangani pengabelan, pengecekan sinyal, dan instalasi perangkat Wi-Fi.')">
+                  <span>Lihat Dokumentasi Praktik</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         06. PERSONAL JOURNEY & LEARNING HORIZON
+         ------------------------------------------------------------------------ -->
+    <section class="section" id="learning">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">05 / Growth Radar</span>
+          <h2 class="section-title">Fokus Pembelajaran Terkini</h2>
+          <p class="section-desc">
+            Topik-topik yang sedang aktif saya pelajari dan kembangkan di luar waktu kuliah reguler.
+          </p>
+        </div>
+
+        <div class="learning-grid">
+          
+          <div class="iridescent-card learning-card reveal">
+            <div class="learning-card-header">
+              <h3>Design System & Micro-Interactions</h3>
+              <span class="learning-progress-pill">Sedang Dipelajari</span>
+            </div>
+            <p style="font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.6;">
+              Mendalami pembuatan komponen terstandarisasi di Figma menggunakan Auto-Layout, variant properties, serta perancangan interaksi mikro yang meningkatkan kepuasan pengguna.
+            </p>
+          </div>
+
+          <div class="iridescent-card learning-card reveal delay-1">
+            <div class="learning-card-header">
+              <h3>Frontend Web Fundamentals</h3>
+              <span class="learning-progress-pill">Sedang Dipelajari</span>
+            </div>
+            <p style="font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.6;">
+              Menerjemahkan ide desain Figma menjadi kode nyata dengan HTML semantik, modern CSS (Custom Properties, Flex, Grid), dan dasar logika interaksi Vanilla JavaScript.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         07. CONTACT & GET IN TOUCH
+         ------------------------------------------------------------------------ -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        
+        <div class="iridescent-card contact-card reveal">
+          <span class="section-tag" style="margin-bottom: var(--space-md);">06 / Connect</span>
+          <h2 class="contact-headline">Mari Berkolaborasi atau Sekadar Berdiskusi Seputar Teknologi</h2>
+          <p class="contact-subtext">
+            Saya selalu terbuka untuk berdiskusi mengenai proyek UI/UX, eksplorasi teknologi informasi, maupun peluang magang dan kegiatan akademik.
+          </p>
+
+          <div class="contact-links-wrap">
+            <!-- Tombol Email dengan Micro-interaction Copy -->
+            <button class="btn btn-primary" data-copy-email="azwaranas2326@gmail.com" title="Klik untuk menyalin email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Salin Email: azwaranas2326@gmail.com</span>
+            </button>
+
+            <!-- Tautan Langsung ke LinkedIn Asli -->
+            <a href="https://www.linkedin.com/in/m-azwar-anas-a35ba4431/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>Profil LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="contact-meta-footer">
+            <span class="contact-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Jepara, Jawa Tengah, Indonesia
+            </span>
+            <span class="contact-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Waktu Lokal: GMT+7
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        Muhammad Azwar Anas
+      </div>
+      <div class="footer-copy">
+        Dirancang dengan pertimbangan UI/UX &bull; Dibangun dengan Semantic HTML, CSS3, & Vanilla JS.
+      </div>
+      <div class="footer-copy">
+        &copy; 2026. Hak Cipta Dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

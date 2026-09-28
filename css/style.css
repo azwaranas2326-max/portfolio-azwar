@@ -1,0 +1,1371 @@
+/* ==========================================================================
+   PORTFOLIO DESIGN SYSTEM & STYLESHEET
+   Author: Muhammad Azwar Anas
+   Role: Information Technology Student (UDINUS)
+   Theme: Editorial Minimalist (Light Warm Cream Default + Obsidian Dark Mode)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. GOOGLE FONTS IMPORT
+   - Playfair Display: Classic, elegant high-contrast Serif for titles & editorial headlines.
+   - Plus Jakarta Sans: Clean, highly-legible modern neo-grotesque for UI & reading.
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* --------------------------------------------------------------------------
+   02. DESIGN SYSTEM TOKENS (:root)
+   Default: LIGHT MODE (Warm Neutral Cream / Off-White, Dark Charcoal Text, Forest & Purple Accents)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Surfaces & Backgrounds (Light Mode Default) */
+  --bg-deep: #FBF9F5;              /* Latar belakang utama: Warm neutral cream / off-white */
+  --bg-canvas: #F4F1EA;            /* Canvas sekunder untuk variasi section */
+  --bg-surface: #FFFFFF;           /* Card & panel: Putih bersih dengan kontras elegan */
+  --bg-surface-elevated: #EDE8DF;  /* Surface melayang (badge, dropdown, hover) */
+  --bg-glass: rgba(251, 249, 245, 0.92);
+
+  /* Typography Colors */
+  --text-main: #111111;            /* Dark Charcoal / Deep Black: Tegas, elegan, tidak norak */
+  --text-muted: #57534E;           /* Warm stone gray: Nyaman untuk paragraf panjang */
+  --text-dim: #78716C;             /* Abu-abu redup untuk metadata & tanggal */
+  --text-highlight: #1B4332;       /* Deep Forest Green untuk aksen status */
+
+  /* Accents (Subtle Forest Green & Deep Royal Purple) */
+  --accent-emerald: #1B4332;       /* Deep Forest Green yang matang */
+  --accent-emerald-subtle: rgba(27, 67, 50, 0.08);
+  --accent-forest: #2D6A4F;
+  --accent-purple: #581C87;        /* Deep Imperial Purple untuk sentuhan aksen */
+  --accent-purple-deep: #3B0764;
+  --accent-purple-glow: rgba(88, 28, 135, 0.12);
+
+  /* Iridescent Gradients & Refractions */
+  --gradient-iridescent: linear-gradient(135deg, rgba(88, 28, 135, 0.08) 0%, rgba(27, 67, 50, 0.07) 50%, rgba(17, 17, 17, 0.03) 100%);
+  --gradient-border: linear-gradient(135deg, rgba(88, 28, 135, 0.22) 0%, rgba(27, 67, 50, 0.2) 50%, rgba(17, 17, 17, 0.08) 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(88, 28, 135, 0.06), rgba(27, 67, 50, 0.04) 50%, transparent 80%);
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(17, 17, 17, 0.1);
+  --border-focus: #111111;
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 12px 32px -8px rgba(17, 17, 17, 0.07);
+  --shadow-elevated: 0 20px 48px -12px rgba(17, 17, 17, 0.12);
+
+  /* Button Tokens */
+  --btn-primary-bg: #111111;
+  --btn-primary-text: #FBF9F5;
+  --btn-primary-hover: #000000;
+  --btn-secondary-bg: rgba(17, 17, 17, 0.03);
+  --btn-secondary-border: rgba(17, 17, 17, 0.15);
+  --btn-secondary-text: #111111;
+  --btn-secondary-hover: rgba(17, 17, 17, 0.08);
+
+  /* Typography Scales (Fluid via clamp()) */
+  --font-editorial: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-hero: clamp(2.4rem, 4.2vw + 1rem, 3.85rem);
+  --fs-h1: clamp(1.95rem, 3.2vw + 0.6rem, 2.85rem);
+  --fs-h2: clamp(1.35rem, 1.8vw + 0.4rem, 1.75rem);
+  --fs-h3: clamp(1.1rem, 1.3vw + 0.2rem, 1.3rem);
+  --fs-body-lg: clamp(1.02rem, 0.4vw + 0.92rem, 1.15rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.25rem;
+  --space-2xl: 3.5rem;
+  --space-3xl: 6rem;
+
+  /* Layout Containers */
+  --container-max: 1220px;
+  --container-editorial: 980px;
+  --container-narrow: 760px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-smooth: 350ms;
+}
+
+/* --------------------------------------------------------------------------
+   DARK MODE TOKENS ([data-theme="dark"])
+   Sleek Obsidian Forest Green + Iridescent Purple Refraction
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg-deep: #070c09;
+  --bg-canvas: #0b1310;
+  --bg-surface: #101c17;
+  --bg-surface-elevated: #162620;
+  --bg-glass: rgba(16, 28, 23, 0.88);
+
+  --text-main: #F0F7F3;
+  --text-muted: #95ab9f;
+  --text-dim: #5c7569;
+  --text-highlight: #48bb78;
+
+  --accent-emerald: #10b981;
+  --accent-emerald-subtle: rgba(16, 185, 129, 0.08);
+  --accent-forest: #22543d;
+  --accent-purple: #8b5cf6;
+  --accent-purple-deep: #3b0764;
+  --accent-purple-glow: rgba(139, 92, 246, 0.2);
+
+  --gradient-iridescent: linear-gradient(135deg, rgba(139, 92, 246, 0.28) 0%, rgba(16, 185, 129, 0.12) 50%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-border: linear-gradient(135deg, rgba(139, 92, 246, 0.45) 0%, rgba(16, 185, 129, 0.3) 50%, rgba(255, 255, 255, 0.08) 100%);
+  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.18), rgba(16, 185, 129, 0.06) 50%, transparent 80%);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(139, 92, 246, 0.6);
+  --shadow-subtle: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+  --shadow-elevated: 0 24px 52px -12px rgba(0, 0, 0, 0.75);
+
+  --btn-primary-bg: #F0F7F3;
+  --btn-primary-text: #070c09;
+  --btn-primary-hover: #FFFFFF;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-border: rgba(255, 255, 255, 0.12);
+  --btn-secondary-text: #F0F7F3;
+  --btn-secondary-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   03. MODERN RESET & ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+section {
+  scroll-margin-top: 85px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.68;
+  color: var(--text-muted);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(ellipse 90% 70% at 50% -20%, rgba(88, 28, 135, 0.04), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 40%, rgba(27, 67, 50, 0.04), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(88, 28, 135, 0.03), transparent);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+[data-theme="dark"] body {
+  background-image: 
+    radial-gradient(ellipse 90% 70% at 50% -20%, rgba(139, 92, 246, 0.12), transparent),
+    radial-gradient(ellipse 60% 50% at 90% 40%, rgba(16, 185, 129, 0.07), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(139, 92, 246, 0.08), transparent);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--text-main);
+  color: var(--bg-deep);
+  padding: var(--space-xs) var(--space-md);
+  font-weight: 700;
+  z-index: 1000;
+  border-radius: var(--radius-sm);
+  transition: top var(--duration-fast) ease;
+}
+.skip-link:focus {
+  top: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   04. REUSABLE UTILITIES & CARDS
+   -------------------------------------------------------------------------- */
+.container {
+  width: min(100% - 3.5rem, var(--container-max));
+  margin-inline: auto;
+}
+
+.container-narrow {
+  width: min(100% - 3.5rem, var(--container-narrow));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-3xl);
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-emerald);
+  margin-bottom: var(--space-sm);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  background: var(--accent-emerald-subtle);
+  border: 1px solid rgba(27, 67, 50, 0.15);
+}
+
+[data-theme="dark"] .section-tag {
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.section-title {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main);
+  letter-spacing: -0.015em;
+}
+
+.section-desc {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-body-lg);
+  color: var(--text-muted);
+  max-width: 58ch;
+}
+
+/* Iridescent Card Surface */
+.iridescent-card {
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform var(--duration-smooth) var(--ease-out-expo),
+              border-color var(--duration-smooth) var(--ease-out-expo),
+              box-shadow var(--duration-smooth) var(--ease-out-expo),
+              background-color 0.35s ease;
+}
+
+.iridescent-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-border);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.4;
+  transition: opacity var(--duration-smooth) ease;
+}
+
+.iridescent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.iridescent-card:hover::before {
+  opacity: 0.9;
+}
+
+/* Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.75rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-smooth) var(--ease-out-expo);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: 0 4px 14px rgba(17, 17, 17, 0.12);
+}
+
+.btn-primary:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(17, 17, 17, 0.2);
+}
+
+.btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+  background: var(--btn-secondary-hover);
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   05. NAVBAR & BRAND NAME (Tanpa Inisial AA)
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding-block: var(--space-md);
+  transition: background var(--duration-smooth) ease,
+              padding var(--duration-smooth) ease,
+              border-color var(--duration-smooth) ease;
+}
+
+.navbar.scrolled {
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-block: var(--space-sm);
+  box-shadow: var(--shadow-subtle);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Link: Murni Nama 'Azwar Anas' dengan tipografi editorial bersih */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-editorial);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: opacity var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+
+.brand-link:hover {
+  opacity: 0.85;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  position: relative;
+  padding-block: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--text-main);
+  transition: width var(--duration-fast) ease;
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: var(--accent-emerald-subtle);
+  border: 1px solid rgba(27, 67, 50, 0.15);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: pulse-dot 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+/* Theme Switcher Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--duration-fast) ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.08);
+  border-color: var(--text-main);
+}
+
+.theme-toggle-btn .icon-sun {
+  display: none;
+}
+.theme-toggle-btn .icon-moon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .icon-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle-btn .icon-moon {
+  display: none;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: transform var(--duration-fast) ease, opacity var(--duration-fast) ease;
+}
+
+/* --------------------------------------------------------------------------
+   06. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--space-3xl) + 2.5rem);
+  padding-bottom: var(--space-3xl);
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge-wrap {
+  display: inline-flex;
+  margin-bottom: var(--space-md);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  box-shadow: var(--shadow-subtle);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald);
+}
+
+.hero-title {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-title .serif-emphasis {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-emerald);
+}
+
+[data-theme="dark"] .hero-title .serif-emphasis {
+  color: #34d399;
+}
+
+.hero-summary {
+  font-size: var(--fs-body-lg);
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 50ch;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-summary strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.hero-metadata {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+
+.meta-val {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.profile-card-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  background: radial-gradient(circle, rgba(88, 28, 135, 0.08), rgba(27, 67, 50, 0.05), transparent 70%);
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  filter: blur(24px);
+}
+
+[data-theme="dark"] .profile-card-wrapper::after {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25), rgba(16, 185, 129, 0.15), transparent 70%);
+}
+
+.profile-photo-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-elevated);
+  transition: transform var(--duration-smooth) var(--ease-out-expo),
+              box-shadow var(--duration-smooth) var(--ease-out-expo);
+}
+
+.profile-photo-frame:hover {
+  transform: translateY(-4px);
+}
+
+.profile-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-replace-note {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(251, 249, 245, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--fs-xs);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="dark"] .photo-replace-note {
+  background: rgba(16, 28, 23, 0.88);
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   07. ABOUT NARRATIVE SECTION
+   -------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.narrative-card {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.narrative-lead {
+  font-family: var(--font-editorial);
+  font-size: 1.35rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.feature-pill {
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.feature-pill:hover {
+  border-color: var(--text-main);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--accent-emerald-subtle);
+  color: var(--accent-emerald);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .feature-icon {
+  color: #34d399;
+}
+
+.feature-icon.purple {
+  background: rgba(88, 28, 135, 0.08);
+  color: var(--accent-purple);
+}
+
+[data-theme="dark"] .feature-icon.purple {
+  color: #c084fc;
+}
+
+.feature-title {
+  font-size: var(--fs-h3);
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.feature-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   08. SKILLS & TECHNICAL SPECTRUM
+   -------------------------------------------------------------------------- */
+.skills-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.skill-category {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.category-header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.category-label {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-emerald);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .category-label {
+  color: #34d399;
+}
+
+.category-title {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h2);
+  color: var(--text-main);
+  margin-top: 4px;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: auto;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-name {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.skill-level-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.skill-item-note {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* --------------------------------------------------------------------------
+   09. JOURNEY & MILESTONES (Experience & Education Timeline)
+   -------------------------------------------------------------------------- */
+.timeline-track {
+  position: relative;
+  max-width: var(--container-editorial);
+  margin-inline: auto;
+  padding-left: var(--space-2xl);
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-emerald), var(--accent-purple), var(--border-subtle));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-2xl);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-node {
+  position: absolute;
+  left: calc(-1 * var(--space-2xl) + 2px);
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-deep);
+  border: 3px solid var(--accent-emerald);
+  box-shadow: 0 0 10px rgba(27, 67, 50, 0.35);
+}
+
+.timeline-item.education .timeline-node {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 10px rgba(88, 28, 135, 0.35);
+}
+
+.timeline-content {
+  padding: var(--space-xl);
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.timeline-period {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--accent-emerald);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] .timeline-period {
+  color: #34d399;
+}
+
+.timeline-type {
+  font-size: 0.725rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.timeline-role {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h2);
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.timeline-institution {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.timeline-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.timeline-bullets li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.timeline-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-emerald);
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION PROJEK (Grid 2-Kolom: UI/UX & Network Infrastructure)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  align-items: stretch;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  height: 100%;
+}
+
+.project-preview {
+  position: relative;
+  background: var(--bg-canvas);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.project-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.project-card:hover .project-photo {
+  transform: scale(1.035);
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-tagline {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-purple);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+[data-theme="dark"] .project-tagline {
+  color: #c084fc;
+}
+
+.project-title {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h2);
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: var(--space-sm);
+}
+
+.project-desc {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  line-height: 1.68;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.project-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-lg);
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-key {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.spec-val {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.tag-badge {
+  font-size: var(--fs-xs);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   11. PERSONAL JOURNEY & LEARNING HORIZON
+   -------------------------------------------------------------------------- */
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.learning-card {
+  padding: var(--space-xl);
+}
+
+.learning-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.learning-card-header h3 {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h3);
+  color: var(--text-main);
+}
+
+.learning-progress-pill {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(88, 28, 135, 0.08);
+  color: var(--accent-purple);
+  border: 1px solid rgba(88, 28, 135, 0.2);
+}
+
+[data-theme="dark"] .learning-progress-pill {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   12. CONTACT SECTION
+   -------------------------------------------------------------------------- */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card {
+  padding: var(--space-3xl) var(--space-2xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-headline {
+  font-family: var(--font-editorial);
+  font-size: var(--fs-h1);
+  color: var(--text-main);
+  max-width: 24ch;
+  line-height: 1.25;
+  margin-bottom: var(--space-md);
+}
+
+.contact-subtext {
+  font-size: var(--fs-body-lg);
+  color: var(--text-muted);
+  max-width: 48ch;
+  margin-bottom: var(--space-xl);
+}
+
+.contact-links-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.contact-meta-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+}
+
+.contact-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-brand {
+  font-family: var(--font-editorial);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.footer-copy {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+/* --------------------------------------------------------------------------
+   14. ANIMATIONS & BIDIRECTIONAL SCROLL REVEAL (Up & Down Fade-In)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px) scale(0.985);
+  transition: opacity 0.85s var(--ease-out-expo),
+              transform 0.85s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.delay-1 { transition-delay: 90ms; }
+.delay-2 { transition-delay: 180ms; }
+.delay-3 { transition-delay: 270ms; }
+.delay-4 { transition-delay: 360ms; }
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE DESIGN (Breakpoints)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: var(--space-2xl);
+  }
+
+  .hero-visual {
+    order: -1;
+    justify-content: center;
+  }
+
+  .profile-card-wrapper {
+    max-width: 380px;
+  }
+
+  .hero-metadata {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-elevated);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-xl);
+    gap: var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--duration-smooth) var(--ease-out-expo),
+                opacity var(--duration-smooth) ease;
+  }
+
+  .nav-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-meta-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. ACCESSIBILITY: REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

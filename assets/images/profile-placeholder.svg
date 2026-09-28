@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Warm Editorial Paper / Archival Canvas Gradient for Light Mode -->
+    <linearGradient id="editorialCanvas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F5F0" />
+      <stop offset="50%" stop-color="#F2EFE8" />
+      <stop offset="100%" stop-color="#ECE7DC" />
+    </linearGradient>
+
+    <!-- Subtle Radial Glow behind avatar silhouette -->
+    <radialGradient id="portraitAura" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#1B4332" stop-opacity="0.12" />
+      <stop offset="50%" stop-color="#581C87" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#F2EFE8" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Refined Minimalist Border -->
+    <linearGradient id="hairlineBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#1B4332" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#581C87" stop-opacity="0.25" />
+    </linearGradient>
+
+    <!-- Delicate Geometric Grid Matrix -->
+    <pattern id="fineGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.75" fill="#111111" fill-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="600" height="750" fill="url(#editorialCanvas)" />
+  <rect width="600" height="750" fill="url(#portraitAura)" />
+  <rect width="600" height="750" fill="url(#fineGrid)" />
+
+  <!-- Outer Architectural Double Frame (Classic Editorial Style) -->
+  <rect x="24" y="24" width="552" height="702" fill="none" stroke="url(#hairlineBorder)" stroke-width="1.2" />
+  <rect x="32" y="32" width="536" height="686" fill="none" stroke="#111111" stroke-opacity="0.08" stroke-width="0.75" />
+
+  <!-- Corner Ornamental Crosshairs -->
+  <g stroke="#111111" stroke-opacity="0.35" stroke-width="1">
+    <path d="M 20 24 L 28 24 M 24 20 L 24 28" />
+    <path d="M 572 24 L 580 24 M 576 20 L 576 28" />
+    <path d="M 20 726 L 28 726 M 24 722 L 24 730" />
+    <path d="M 572 726 L 580 726 M 576 722 L 576 730" />
+  </g>
+
+  <!-- Silhouette & Portrait Structure -->
+  <g transform="translate(300, 350)">
+    <!-- Concentric Architectural Halo -->
+    <circle r="150" fill="none" stroke="#1B4332" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 6" />
+    <circle r="180" fill="none" stroke="#581C87" stroke-opacity="0.12" stroke-width="1" />
+
+    <!-- Head Avatar Silhouette -->
+    <circle cy="-75" r="68" fill="#E4DED1" stroke="#111111" stroke-opacity="0.25" stroke-width="1.5" />
+    
+    <!-- Torso Silhouette -->
+    <path d="M -125 160 C -125 45, -80 12, 0 12 C 80 12, 125 45, 125 160 Z" fill="#D9D2C3" stroke="#111111" stroke-opacity="0.25" stroke-width="1.5" />
+
+    <!-- Editorial Badge: Foto Diri / Ganti Foto -->
+    <g transform="translate(0, 18)">
+      <rect x="-95" y="-18" width="190" height="36" rx="18" fill="#111111" />
+      <text x="0" y="5" fill="#FBF9F5" font-family="'Playfair Display', Georgia, serif" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="1.5">
+        FOTO DIRI (4:5)
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Editorial Typography Label -->
+  <g transform="translate(50, 685)">
+    <text x="0" y="0" fill="#111111" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" letter-spacing="1">
+      MUHAMMAD AZWAR ANAS
+    </text>
+    <text x="0" y="18" fill="#57534E" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">
+      UNIVERSITAS DIAN NUSWANTORO · IT STUDENT · JEPARA
+    </text>
+
+    <!-- Elegant Status Badge Indicator -->
+    <g transform="translate(480, 5)">
+      <circle cx="0" cy="0" r="5" fill="#1B4332" />
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#1B4332" stroke-opacity="0.4">
+        <animate attributeName="r" values="6;14;6" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.8;0;0.8" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+</svg>
